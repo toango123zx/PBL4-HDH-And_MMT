@@ -8,6 +8,7 @@ resource "aws_db_instance" "mysqltest" {
     engine_version       = "8.0.28"
     username             = "mysqltest" 
     password             = "mysqltest"
+    publicly_accessible = true
     vpc_security_group_ids = ["${aws_security_group.dbsg.id}"]
     db_subnet_group_name = "${aws_db_subnet_group.dbsubnetgroup.id}"
     snapshot_identifier = null
