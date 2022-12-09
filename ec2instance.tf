@@ -16,11 +16,13 @@ resource "aws_instance" "Web_Server" {
   ami           = "${lookup(var.AmiLinux, var.region)}"
   instance_type = "t2.micro"
   associate_public_ip_address = "true"
+  # vpc_id = "${aws_vpc.MyVpc.id}"
   subnet_id = "${aws_subnet.MyVPC_subnet_public_1.id}"
-  security_groups = "${aws_security_group.EC2SG.id}"
-  vpc_security_group_ids = ["${aws_security_group.MyVpc_security_group_public.id}"]
+  security_groups = ["${aws_security_group.EC2SG.id}"]
   key_name = "${var.key_name}"
-  auto_recovery = "disabled"
+  maintenance_options {
+    auto_recovery = "disabled"
+  }
   tags = {
         Name = "webserver"
   }
