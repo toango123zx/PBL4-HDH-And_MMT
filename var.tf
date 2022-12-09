@@ -21,7 +21,7 @@ variable "Subnet_Private_1" {
   description = "the cidr of the subnet"
 }
 variable "Subnet_Private_2" {
-  default = "10.0.3.0/24"
+  default = "10.0.4.0/24"
   description = "the cidr of the subnet"
 }
 variable "key_name" {
