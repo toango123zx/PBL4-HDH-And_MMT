@@ -12,10 +12,6 @@ variable "Subnet_Public_1" {
   default = "10.0.1.0/24"
   description = "the cidr of the subnet"
 }
-variable "Subnet_Public_2" {
-  default = "10.0.2.0/24"
-  description = "the cidr of the subnet"
-}
 variable "Subnet_Private_1" {
   default = "10.0.3.0/24"
   description = "the cidr of the subnet"
@@ -24,6 +20,12 @@ variable "Subnet_Private_2" {
   default = "10.0.4.0/24"
   description = "the cidr of the subnet"
 }
+
+data "http" "myip" {
+  url = "http://ipv4.icanhazip.com"
+}
+
+
 variable "key_name" {
   default = "pbl4"
   description = "the ssh key to use in the EC2 machines"
